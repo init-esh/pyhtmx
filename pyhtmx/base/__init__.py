@@ -51,6 +51,7 @@ class BaseHtmx():
                 tagstart+=f' hx-put="{self._url}"'
         tagstart+='>'
         tagend=f"</{self.__class__.__name__.lower()}>"
+        
         return f"{tagstart}{inner_elem}{tagend}"
     
     def __str__(self):
