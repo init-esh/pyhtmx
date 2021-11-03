@@ -12,6 +12,7 @@ class BaseHtmx():
         self._swap=''
         self._trigger=''
         
+        
         for k,v in kwargs.items():
             setattr(self,k,v)
 
@@ -37,7 +38,7 @@ class BaseHtmx():
     def __repr__(self):
         op={k:v for k, v in self.__dict__.items() if v}
 
-        inner_elem=op.pop('inner')
+        inner_elem=op.pop('inner') if 'inner' in op else ""
         tagstart=f"<{self.__class__.__name__.lower()}"
         for k,v in op.items():
             if k!='_url' and k!='_method' and k!='_target' and k!='_swap' and k!='_trigger': 
